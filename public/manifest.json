@@ -1,0 +1,16 @@
+{
+  "name": "Work Space",
+  "description": "work space",
+  "version": "1.0",
+  "manifest_version": 3, 
+  "author": "ember", 
+  "chrome_url_overrides": {
+    "newtab": "index.html"
+  }, 
+  "action":{
+    "default_popup": "popup.html"
+  }, 
+  "content_security_policy": {
+    "extension_pages": "script-src 'self'; object-src 'self'"
+  }
+}

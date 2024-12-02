@@ -1,0 +1,33 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  * {
+    @apply box-border;
+  }
+  /* Hides scrollbar for both Webkit and Firefox */
+  .scrollbar-hide::-webkit-scrollbar {
+    display: none; /* Safari and Chrome */
+  }
+
+  .scrollbar-hide {
+    -ms-overflow-style: none; /* IE and Edge */
+    scrollbar-width: none; /* Firefox */
+  }
+}
+
+@layer components {
+  .menu-icon {
+    @apply cursor-pointer rounded-md p-1
+        transition duration-200 ease-out;
+  }
+  .btn {
+    @apply hover:cursor-pointer hover:bg-opacity-5 
+        transition-all duration-75;
+  }
+
+  .settingBtn {
+    @apply border-b-[1px] w-full h-[80px];
+  }
+}
