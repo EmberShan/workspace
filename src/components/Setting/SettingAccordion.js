@@ -40,7 +40,7 @@ function SettingAccordion() {
 
             {/* simple tutorial for showing a guide of how to use this app */}
             <button className='btn settingBtn'
-                onClick={toggleHowToUse}> How To Use </button>
+                onClick={toggleHowToUse}> Settings </button>
             <AnimatePresence initial={false}>
                 {isHowToUseOpen &&
                     <motion.div
@@ -54,7 +54,7 @@ function SettingAccordion() {
                         }}
                         transition={{ duration: 0.8, ease: [0.04, 0.62, 0.23, 0.98] }}
                     >
-                        <HowToUse />
+                        {/* <HowToUse /> */}
                     </motion.div>
                 }
 

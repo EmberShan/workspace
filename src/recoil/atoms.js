@@ -36,7 +36,7 @@ export const gridSpecs = atom({
     key: 'gridSpecs',
     default: {
         // row and columns of the grid 
-        r: 2, c: 6,
+        r: 3, c: 6,
         // one grid rectangle unit
         // minW = width / c
         // minH = height / r 
@@ -62,7 +62,7 @@ export const dragToSpecs = atom({
 // changing the color theme of the components 
 export const colorModeToggle = atom({
     key: 'colorModeToggle',
-    default: 'dark'
+    default: 'light'
 });
 
 // setting the information of user using firebase auth() (./firebase/signIn)

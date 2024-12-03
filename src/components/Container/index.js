@@ -129,7 +129,7 @@ const Container = ({ setDragging, id, defaultPosition }) => {
           y: container.y,
           w: container.w,
           h: container.h,
-          type: container.type, 
+          type: container.type,
         },
       });
     }
@@ -179,7 +179,7 @@ const Container = ({ setDragging, id, defaultPosition }) => {
     sizeW = Math.min(Math.max(sizeW, 1), grid.c);
     sizeH = Math.min(Math.max(sizeH, 1), grid.r);
 
-    if (posX != changing.x || posY != changing.y) {
+    if (posX !== changing.x || posY !== changing.y) {
       console.log({ posX, posY, sizeW, sizeH });
       const isFree = checkFreeSpace(container, {
         x: posX,
@@ -212,7 +212,7 @@ const Container = ({ setDragging, id, defaultPosition }) => {
     sizeW = Math.min(Math.max(sizeW, 1), grid.c);
     sizeH = Math.min(Math.max(sizeH, 1), grid.r);
 
-    if (sizeW != changing.w || sizeH != changing.h) {
+    if (sizeW !== changing.w || sizeH !== changing.h) {
       console.log({ posX, posY, sizeW, sizeH });
       const isFree = checkFreeSpace(container, {
         x: posX,
@@ -252,11 +252,6 @@ const Container = ({ setDragging, id, defaultPosition }) => {
       w: changing.w,
       h: changing.h,
     });
-  };
-
-  // TODO: edit the type of the children when clicking
-  const editContainer = () => {
-    console.log("edited!");
   };
 
   return (
@@ -307,11 +302,6 @@ const Container = ({ setDragging, id, defaultPosition }) => {
       >
         {editable && (
           <span className={`absolute top-[5px] right-[5px] space-x-2`}>
-            {/* <IconButton aria-label="edit" onClick={editContainer}>
-                            <EditIcon style={{
-                                fontSize: '1rem',
-                            }} />
-                        </IconButton> */}
 
             <IconButton aria-label="delete" onClick={useDeleteContainer}>
               <DeleteIcon

@@ -29,9 +29,9 @@ const TodoList = () => {
   };
 
   return (
-    <div className="max-w-xl mx-auto p-4">
+    <div className="w-full">
       <div className="flex items-center space-x-2">
-        <button className="" onClick={addTodo}>
+        <button className="" onClick={addTodo} onKeyDown={handleKeyDown}>
           {/* Plus icon */}
           <svg
             xmlns="http://www.w3.org/2000/svg"

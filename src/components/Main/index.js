@@ -26,7 +26,7 @@ function Main({ }) {
       minH: (windowRef.current.clientHeight - (grid.r - 1) * grid.margin) / grid.r,
     });
     
-  }, []);
+  }, [grid.c, grid.r]);
   
   // when window is resized, set the grid values again 
   useEffect(() => {

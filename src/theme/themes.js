@@ -8,7 +8,7 @@ export const themes = {
             "bg": "#F8F8F8",
             "bg2": "#FFFFFF", 
             "primary": "#000000",
-            "border": "#FFFFFF", 
+            "border": "#bdbdbd", 
             "button": {
                 "text": "",
                 "bg": ""

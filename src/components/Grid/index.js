@@ -101,7 +101,7 @@ function Grid() {
             // this should be usable in here because the add button needs to be disabled
             setDragging={setDragging}
             dragging={dragging}
-            // default position got from the useFreeSpace hook
+            // default position got from useFreeSpace hook
             defaultPosition={nextPos}
           />
         ))}

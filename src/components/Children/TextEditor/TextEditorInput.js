@@ -67,7 +67,7 @@ export function TextEditorInput() {
       {/* Textarea */}
       <textarea
         ref={textareaRef}
-        className="textarea w-full resize-none outline-none overflow-hidden"
+        className="textarea w-full resize-none outline-none overflow-hidden" 
         placeholder="Start to type something..."
         value={textContent}
         onInput={handleInput}

@@ -21,7 +21,7 @@ function Ruler() {
                 {[...Array(grid.r)].map((row, r) =>
                     <div key={r} className={`flex flex-row justify-between`}>
                         {[...Array(grid.c)].map((col, c) =>
-                            <div key={r + c} className={`border-[.5px]`}
+                            <div key={r + c} className={`border-[1px] ruler-border`}
                                 style={{
                                     width: grid.minW, 
                                     height: grid.minH
