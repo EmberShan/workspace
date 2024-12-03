@@ -16,8 +16,6 @@ import {
 
 import { IconButton } from "@mui/material";
 import DeleteIcon from "@mui/icons-material/Delete";
-import EditIcon from "@mui/icons-material/Edit";
-import CallReceivedOutlinedIcon from "@mui/icons-material/CallReceivedOutlined";
 
 import { useUpdateFreeSpace, useFreeSpace } from "../../hooks/FreeSpace";
 
@@ -75,42 +73,31 @@ const Container = ({ setDragging, id, defaultPosition }) => {
   };
 
   // set the container size and position on start
-  // TODO: place the container in the free space
-  // and update the free space list atom
   useEffect(() => {
     if (!isInit) {
-      if (checkIfIdInStorage() !== null) {
-        setContainer({
-          ...checkIfIdInStorage(),
-        });
-        setChanging({
-          ...checkIfIdInStorage(),
-        });
-      } else {
-        // col number
-        const posX = defaultPosition[0];
-        // row number
-        const posY = defaultPosition[1];
+      // col number
+      const posX = defaultPosition[0];
+      // row number
+      const posY = defaultPosition[1];
 
-        setContainer({
-          ...container,
-          x: posX,
-          y: posY,
-          w: 1,
-          h: 1,
-        });
-        setChanging({
-          ...container,
-          x: posX,
-          y: posY,
-          w: 1,
-          h: 1,
-        });
-      }
+      setContainer({
+        ...container,
+        x: posX,
+        y: posY,
+        w: 1,
+        h: 1,
+      });
+      setChanging({
+        ...container,
+        x: posX,
+        y: posY,
+        w: 1,
+        h: 1,
+      });
+      // setting this to true, so we can know container is set
+      // so that we could update the free space list
+      setIsInit(true);
     }
-    // setting this to true, so we can know container is set
-    // so that we could update the free space list
-    setIsInit(true);
   }, []);
 
   // updated whenever container state changes
@@ -118,27 +105,18 @@ const Container = ({ setDragging, id, defaultPosition }) => {
   // in the useDeleteContainer function
   // updating the free space list when resizing and dragging
   useEffect(() => {
+    // need container to be initialized to update the free space list
     if (isInit) {
       // update the free space list
+      console.log("updating free space");
       updateFreeSpace(oldContainer, container);
-      // set the container states in local storage from the container
-      setStorageContainers({
-        ...storageContainers,
-        [id]: {
-          x: container.x,
-          y: container.y,
-          w: container.w,
-          h: container.h,
-          type: container.type,
-        },
-      });
     }
-  }, [container]);
+  }, [container, isInit]);
 
   // hook to delete the container
   const useDeleteContainer = () => {
     console.log("deleted!");
-    // pass in false because we are deleting the container
+    // pass in true because we are deleting the container
     updateFreeSpace(oldContainer, container, true);
 
     // delete the corresponding container state through id from the localStorage
@@ -180,7 +158,6 @@ const Container = ({ setDragging, id, defaultPosition }) => {
     sizeH = Math.min(Math.max(sizeH, 1), grid.r);
 
     if (posX !== changing.x || posY !== changing.y) {
-      console.log({ posX, posY, sizeW, sizeH });
       const isFree = checkFreeSpace(container, {
         x: posX,
         y: posY,
@@ -188,7 +165,6 @@ const Container = ({ setDragging, id, defaultPosition }) => {
         h: sizeH,
       });
       if (isFree) {
-        console.log("set changing called");
         setChanging({
           x: posX,
           y: posY,
@@ -213,7 +189,6 @@ const Container = ({ setDragging, id, defaultPosition }) => {
     sizeH = Math.min(Math.max(sizeH, 1), grid.r);
 
     if (sizeW !== changing.w || sizeH !== changing.h) {
-      console.log({ posX, posY, sizeW, sizeH });
       const isFree = checkFreeSpace(container, {
         x: posX,
         y: posY,
@@ -302,7 +277,6 @@ const Container = ({ setDragging, id, defaultPosition }) => {
       >
         {editable && (
           <span className={`absolute top-[5px] right-[5px] space-x-2`}>
-
             <IconButton aria-label="delete" onClick={useDeleteContainer}>
               <DeleteIcon
                 className="important"
@@ -329,7 +303,34 @@ const Container = ({ setDragging, id, defaultPosition }) => {
           <span
             className={`resize-handler absolute bottom-1 right-1 space-x-2 opacity-40`}
           >
-            <CallReceivedOutlinedIcon className="rotate-[270deg]" />
+            {/* icon for dragging at the bottom right corner */}
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              fill="none"
+              viewBox="0 0 24 24"
+              strokeWidth={1.5}
+              stroke="currentColor"
+              className="w-4 h-4"
+            >
+              {/* Right side of the rectangle */}
+              <line
+                x1="20"
+                y1="4"
+                x2="20"
+                y2="20"
+                stroke="currentColor"
+                strokeWidth="2"
+              />
+              {/* Bottom side of the rectangle */}
+              <line
+                x1="4"
+                y1="19"
+                x2="20"
+                y2="19"
+                stroke="currentColor"
+                strokeWidth="2"
+              />
+            </svg>
           </span>
         )}
       </Rnd>

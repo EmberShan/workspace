@@ -13,8 +13,8 @@ export function useUpdateFreeSpace() {
   const [listOfFreeSpace, setListOfFreeSpace] = useRecoilState(freeSpace);
 
   function getFreeSpace(oldContainer, newContainer, isRemoving) {
-    console.log("old container:", oldContainer);
-    console.log("new container:", newContainer);
+    // console.log("old container:", oldContainer);
+    // console.log("new container:", newContainer);
     // to find out what spaces are changed, we need to find all the coordinates
     // that could be changed (smallest point before the change, and after)
 
@@ -62,7 +62,9 @@ export function useUpdateFreeSpace() {
           }));
         }
       }
-    } catch {}
+    } catch {
+        console.log('useUpdateFreeSpace error'); 
+    }
 
     return listOfFreeSpace;
   }

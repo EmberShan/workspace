@@ -43,7 +43,9 @@ export function useFreeSpace() {
     
                 }   
             }
-        } catch {}
+        } catch {
+            console.log('useFreeSpace error'); 
+        }
 
         return true; 
 

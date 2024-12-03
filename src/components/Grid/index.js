@@ -53,20 +53,19 @@ function Grid() {
       };
     }
     setListOfFreeSpace({ ...tempObj });
-
-    // adding the first default container (if user is not logged in)
-    // setContainerIDs([...containerIDs, uuid()]);
   }, []);
 
   // set the containersIDs if there is value in localStorage
   // else, don't execute this useEffect
-  useEffect(() => {
-    const idsInStorage = JSON.parse(localStorage.getItem("containerIDs"));
-    if (idsInStorage !== null) {
-      const ids = Object.values(idsInStorage);
-      setContainerIDs(ids);
-    }
-  }, []);
+  // TODO: disabled for now. local storage not finished.
+  //   useEffect(() => {
+  //     const idsInStorage = JSON.parse(localStorage.getItem("containerIDs"));
+  //     if (idsInStorage !== null) {
+  //       const ids = Object.values(idsInStorage);
+  //       setContainerIDs(ids);
+  //     }
+  //   }, []);
+
   // this would add any new container ids
   // and delete any container id if the user deleted it
   useEffect(() => {
@@ -78,17 +77,18 @@ function Grid() {
   // this function is called whenever the button is clicked
   const addContainer = (option) => {
     setNextPos(getNextFreeSpace());
+    console.log('added, next free position is ', getNextFreeSpace()); 
 
     const newID = uuid();
-    setContainerIDs([...containerIDs, newID]);
     getAddContainer(option, newID);
+    setContainerIDs([...containerIDs, newID]);
   };
 
   // debugging
-  useEffect(() => {
-    console.log("*********list of free space changed*********");
-    console.log({ listOfFreeSpace });
-  }, [listOfFreeSpace]);
+  //   useEffect(() => {
+  //     console.log("*********list of free space changed*********");
+  //     console.log({ listOfFreeSpace });
+  //   }, [listOfFreeSpace]);
 
   return (
     <DndProvider backend={HTML5Backend}>
@@ -108,22 +108,20 @@ function Grid() {
 
         {/* mui floating action button; disabled when dragging */}
 
-        {editable &&
-          (dragging || getNextFreeSpace() === null ? (
-            // not able to add
-            <div
-              className={`absolute bottom-3 right-3 opacity-20 pointer-events-none`}
-            >
-              <AddButton addContainer={addContainer} add={false} />
-            </div>
-          ) : (
-            <div className={`absolute bottom-3 right-3`}>
-              <AddButton
-                addContainer={addContainer}
-                add={true}
-              />
-            </div>
-          ))}
+        {editable && (
+          <div
+            className={`absolute bottom-3 right-3 ${
+              dragging || getNextFreeSpace() === null
+                ? "opacity-20 pointer-events-none"
+                : ""
+            }`}
+          >
+            <AddButton
+              addContainer={addContainer}
+              add={!(dragging || getNextFreeSpace() === null)}
+            />
+          </div>
+        )}
       </div>
     </DndProvider>
   );
