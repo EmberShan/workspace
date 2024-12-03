@@ -129,16 +129,10 @@ const Container = ({ setDragging, id, defaultPosition }) => {
           y: container.y,
           w: container.w,
           h: container.h,
+          type: container.type, 
         },
       });
     }
-    // debugging
-    console.log({
-      x: container.x,
-      y: container.y,
-      w: container.w,
-      h: container.h,
-    });
   }, [container]);
 
   // hook to delete the container

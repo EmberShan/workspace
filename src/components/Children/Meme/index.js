@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 
 // List all file names from the /meme folder
-const memeFiles = ["1.gif", "2.webp", "3.gif", "4.gif", "5.gif"];
+const memeFiles = ["1.gif", "2.webp", "3.gif", "4.gif", "5.gif", "6.gif"];
 
 const MemeDisplay = () => {
   const [currentMeme, setCurrentMeme] = useState(getRandomMeme());
