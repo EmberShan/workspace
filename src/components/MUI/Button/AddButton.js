@@ -42,6 +42,10 @@ export function AddButton({ addContainer, add }) {
               {" "}
               Text Block{" "}
             </MenuItem>
+            <MenuItem onClick={() => addContainer("todo")}>
+              {" "}
+              Todo List{" "}
+            </MenuItem>
             <MenuItem onClick={() => addContainer("meme")}>
               {" "}
               Gimme Meme{" "}

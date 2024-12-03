@@ -9,6 +9,7 @@ import { editableState } from "../../recoil/atoms";
 
 import { TextEditorInput } from "./TextEditor/TextEditorInput";
 import MemeDisplay from "./Meme";
+import TodoList from "./TodoBoard";
 
 function Child({ type }) {
   const editable = useRecoilValue(editableState);
@@ -19,6 +20,8 @@ function Child({ type }) {
         <TextEditorInput />
       ) : type === "meme" ? (
         <MemeDisplay />
+      ) : type === "todo" ? (
+        <TodoList />
       ) : null}
     </div>
   );
