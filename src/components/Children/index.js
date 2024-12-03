@@ -11,6 +11,8 @@ import { TextEditorInput } from "./TextEditor/TextEditorInput";
 import MemeDisplay from "./Meme";
 import TodoList from "./TodoBoard";
 import DigitalClock from "./Clock";
+import WebpagePreview from "./WebPreview";
+
 
 function Child({ type }) {
   const editable = useRecoilValue(editableState);
@@ -25,6 +27,8 @@ function Child({ type }) {
         <TodoList />
       ) : type === "clock" ? (
         <DigitalClock />
+      ) :  type === "web" ? (
+        <WebpagePreview />
       ) : null}
     </div>
   );

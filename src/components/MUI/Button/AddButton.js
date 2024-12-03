@@ -46,6 +46,10 @@ export function AddButton({ addContainer, add }) {
               {" "}
               Todo List{" "}
             </MenuItem>
+            <MenuItem onClick={() => addContainer("web")}>
+              {" "}
+              Bookmarks{" "}
+            </MenuItem>
             <MenuItem onClick={() => addContainer("clock")}>
               {" "}
               Clock{" "}

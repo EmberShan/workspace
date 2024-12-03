@@ -8,7 +8,7 @@ export function useFreeSpace() {
     // get the value of x, y, w, h that need to be checked 
     // check if the dragged to or resized position is within limit
     const checkFreeSpaceWithinLimit = (container, changedTo) => {
-        console.log("checking free space--------")
+        // console.log("checking free space--------", listOfFreeSpace)
         // 
         const minX = changedTo.x;
         const maxX = changedTo.x + changedTo.w;
@@ -17,7 +17,7 @@ export function useFreeSpace() {
         const w = changedTo.w;
         const h = changedTo.h;
 
-        // to not considering that the old container occupied the space   
+        // not consider that the old container occupied the space   
         const oldX = container.x;
         const oldY = container.y;
         const oldMaxX = container.x + container.w;
@@ -26,18 +26,14 @@ export function useFreeSpace() {
         try {
             for (let y = minY; y < maxY; y++) {
                 for (let x = minX; x < maxX; x++) {
-                    // if resizing, and it is checking the container before the change
+                    // if resizing, check the container before the change
                     // the furtherest point of the container before resizing 
                     const isOldContainer = (
                         ((y >= oldY && y < oldMaxY) && (x >= oldX && x < oldMaxX))
-                        // ||
-                        // (((y + h) >= oldY && (y + h) < oldMaxY) && ((x + w) >= oldX && (x + w) < oldMaxX))
                     );
-    
-                    console.log(isOldContainer); 
-    
+        
                     if (!isOldContainer) {
-                        console.log(false); 
+                        // console.log(false); 
                         if (!listOfFreeSpace[y][x]) return false;
                     }
     

@@ -84,7 +84,7 @@ export const userState = atom({
 // row number is y, column number is x
 // first row then column 
 // {row number (y) : [index as column numbers]} 
-// remember that for ex., (0, 1) means that there is a container(width 1 height 1) 
+// for ex., (0, 1) means that there is a container(width 1 height 1) 
 // from (0, 1) to (1, 2)
 export const freeSpace = atom({
     key: 'freeSpace',

@@ -3,7 +3,6 @@ import { useRecoilValue } from 'recoil';
 import { freeSpace } from '../../recoil/atoms'
 
 // custom hook that returns the getFreeSpace function 
-// and the returned function getFreeSpace takes 
 // TWO containers: one is the old container before the change 
 // and the other one is the new/current container after the change 
 // the change could be resizing and dragging and adding 
