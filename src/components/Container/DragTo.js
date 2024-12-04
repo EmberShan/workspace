@@ -7,7 +7,7 @@ import { gridSpecs } from '../../recoil/atoms';
 function DragTo({ changing }) {
     // size and position of this component  
     const grid = useRecoilValue(gridSpecs); 
-    console.log({changing})
+    // console.log({changing})
 
     return (
         <div className={`bg-red-200 absolute z-[-1] opacity-50`}

@@ -15,7 +15,6 @@ import {
 } from "../../recoil/atoms";
 
 import { IconButton } from "@mui/material";
-import DeleteIcon from "@mui/icons-material/Delete";
 
 import { useUpdateFreeSpace, useFreeSpace } from "../../hooks/FreeSpace";
 
@@ -108,7 +107,7 @@ const Container = ({ setDragging, id, defaultPosition }) => {
     // need container to be initialized to update the free space list
     if (isInit) {
       // update the free space list
-      console.log("updating free space");
+    //   console.log("updating free space");
       updateFreeSpace(oldContainer, container);
     }
   }, [container, isInit]);
@@ -278,12 +277,20 @@ const Container = ({ setDragging, id, defaultPosition }) => {
         {editable && (
           <span className={`absolute top-[5px] right-[5px] space-x-2`}>
             <IconButton aria-label="delete" onClick={useDeleteContainer}>
-              <DeleteIcon
-                className="important"
-                style={{
-                  fontSize: "1rem",
-                }}
-              />
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                fill="none"
+                viewBox="0 0 24 24"
+                strokeWidth={1.5}
+                stroke="currentColor"
+                className="w-6 h-6 important"
+              >
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  d="M6 18L18 6M6 6l12 12"
+                />
+              </svg>
             </IconButton>
           </span>
         )}

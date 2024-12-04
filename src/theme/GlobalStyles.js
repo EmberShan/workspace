@@ -31,6 +31,9 @@ export const GlobalStyles = createGlobalStyle`
         font-weight: bold; 
     }
     .ruler-border{
+        border-color: ${({ theme }) => theme.colors.grid} !important; 
+    }
+    .custom-border{
         border-color: ${({ theme }) => theme.colors.border} !important; 
     }
 `;

@@ -21,7 +21,7 @@ const MemeDisplay = () => {
     <div className="flex flex-col gap-4">
       <button
         onClick={handleRefresh}
-        className="mt-4 font-semibold rounded transition"
+        className="font-semibold rounded transition"
       >
         <svg
           xmlns="http://www.w3.org/2000/svg"

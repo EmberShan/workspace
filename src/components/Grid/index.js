@@ -77,8 +77,6 @@ function Grid() {
   // this function is called whenever the button is clicked
   const addContainer = (option) => {
     setNextPos(getNextFreeSpace());
-    console.log('added, next free position is ', getNextFreeSpace()); 
-
     const newID = uuid();
     getAddContainer(option, newID);
     setContainerIDs([...containerIDs, newID]);

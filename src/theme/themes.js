@@ -8,7 +8,8 @@ export const themes = {
             "bg": "#F8F8F8",
             "bg2": "#FFFFFF", 
             "primary": "#000000",
-            "border": "#bdbdbd", 
+            "border": "#ededed", 
+            "grid": "#bdbdbd", 
             "button": {
                 "text": "",
                 "bg": ""
@@ -30,6 +31,7 @@ export const themes = {
             "primary": "#FFFFFF",
 
             "border": "rgba(129, 133, 168, .5)", 
+            "grid": "rgba(129, 133, 168, .5)", 
 
             "button": {
                 "text": "#FFFFFF",

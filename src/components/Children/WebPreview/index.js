@@ -22,7 +22,7 @@ function WebpagePreview() {
       if (data.error) {
         setError(data.error);
       } else {
-        setPreviews((prev) => [...prev, data]); // Add the new preview to the list
+        setPreviews((prev) => [data, ...prev]); // Add the new preview to the start of the list
       }
     } catch (err) {
       setError("Failed to fetch webpage preview.");
@@ -90,7 +90,7 @@ function WebpagePreview() {
         {previews.map((metadata, index) => (
           <div
             key={index}
-            className="relative flex items-center border p-4 rounded-md w-full cursor-pointer hover:shadow-md transition"
+            className="relative flex items-center border custom-border p-4 rounded-md w-full cursor-pointer hover:shadow-md transition"
             onClick={() =>
               window.open(metadata.url, "_blank", "noopener noreferrer")
             }
