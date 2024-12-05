@@ -62,7 +62,7 @@ export function useUpdateFreeSpace() {
         }
       }
     } catch {
-        console.log('useUpdateFreeSpace error'); 
+        console.log('useUpdateFreeSpace'); 
     }
 
     return listOfFreeSpace;

@@ -40,7 +40,7 @@ export function useFreeSpace() {
                 }   
             }
         } catch {
-            console.log('useFreeSpace error'); 
+            console.log('useFreeSpace'); 
         }
 
         return true; 

@@ -124,7 +124,7 @@ function WebpagePreview() {
               <img
                 src={metadata.image}
                 alt="Preview"
-                className="w-20 h-20 object-cover mr-4 rounded-md"
+                className="w-20 h-20 object-cover mr-4 rounded-md custom-border border"
               />
             )}
             <div className="flex flex-col justify-between overflow-hidden">

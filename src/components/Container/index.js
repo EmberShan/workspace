@@ -107,7 +107,7 @@ const Container = ({ setDragging, id, defaultPosition }) => {
     // need container to be initialized to update the free space list
     if (isInit) {
       // update the free space list
-    //   console.log("updating free space");
+      //   console.log("updating free space");
       updateFreeSpace(oldContainer, container);
     }
   }, [container, isInit]);
@@ -119,16 +119,21 @@ const Container = ({ setDragging, id, defaultPosition }) => {
     updateFreeSpace(oldContainer, container, true);
 
     // delete the corresponding container state through id from the localStorage
-    const states = JSON.parse(localStorage.getItem("containerStates"));
-    delete states[id];
-    localStorage.setItem("containerStates", JSON.stringify(states));
+    try {
+    //   const states = JSON.parse(localStorage.getItem("containerStates"));
+    //   delete states[id];
+    //   localStorage.setItem("containerStates", JSON.stringify(states));
 
-    // updating the free space list when this container is deleted
-    const newContainerList = [
-      ...containerIDs.slice(0, index),
-      ...containerIDs.slice(index + 1),
-    ];
-    setContainerIDs(newContainerList);
+      // updating the free space list when this container is deleted
+      const newContainerList = [
+        ...containerIDs.slice(0, index),
+        ...containerIDs.slice(index + 1),
+      ];
+      setContainerIDs(newContainerList);
+    } catch {
+        console.log('useDeleteContainer')
+    }
+
     // useResetRecoilState(getContainerState(id));
   };
 
